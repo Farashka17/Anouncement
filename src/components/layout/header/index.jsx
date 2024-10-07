@@ -1,50 +1,83 @@
-import React from "react";
-import { IoDiamond } from "react-icons/io5";
-
+import React, { useEffect, useState } from "react";
+import { BsTelephone } from "react-icons/bs";
+import { TfiWorld } from "react-icons/tfi";
 import { LuUser2 } from "react-icons/lu";
+import { FaRegHeart } from "react-icons/fa6";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { Link } from "react-router-dom";
+import { MdNoteAdd } from "react-icons/md";
 
-
+import useStore from "../../../../store/store";
 const Header = () => { 
-   const {isLogin,setLogout}=useStore();
 
-  const logout =()=>{
-    localStorage.setItem("isLogin","false");
-    localStorage.setItem("userEmail","");
-    setLogout(false)
-  }
+  const setSelectedCategoryId = useStore(
+    (state) => state.setSelectedCategoryId
+  );
+  const [categories, setCategories] = useState([]);
 
-  return (
-    <header className="text-gray-600 body-font">
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+   
+  const fetchCategories = async () => {
+    const response = await fetch("http://localhost:3000/category");
+    const data = await response.json();
+    setCategories(data);
+   };
+
+   useEffect(() => {
+    fetchCategories()
   
-          <IoDiamond className="w-6 h-6 text-pink-500" />
-          <span class="ml-3 text-xl">Tailblocks</span>
-        
-        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <p class="mr-5 hover:text-gray-900">First Link</p>
-          <p class="mr-5 hover:text-gray-900">Second Link</p>
-          <p class="mr-5 hover:text-gray-900">Third Link</p>
-          <p class="mr-5 hover:text-gray-900">Fourth Link</p>
-        </nav>
-        <Link to="/login">
-          {" "}
-          <button
-            className="flex items-center gap-[10px]"
-            onClick={() => {
-              logout();
-            }}
-          >
-            <LuUser2 className="w-6 h-6" />
-            {isLogin ? (
-              <p className="text-[14px] font-medium text-[#2E2E2E]">Log out</p>
-            ) : (
-              <p className="text-[14px] font-medium text-[#2E2E2E]">Sign In</p>
-            )}
-          </button>
+     }, []);
+   
+     const {resetFilters}=useStore();
+     const {isLogin,setLogout}=useStore();
+
+     const logout =()=>{
+       localStorage.setItem("isLogin","false");
+       localStorage.setItem("userEmail","");
+       setLogout(false)
+     }
+   
+  
+  return (
+   <>
+     <div className=' bg-[#007878] '>
+    <div className='container max-w-[1128px] py-5 flex justify-between items-center mx-auto'>
+        {/* sol */}
+   <Link to="/">     <button className='flex items-center gap-3 justify-center' onClick={resetFilters}>
+        <div className='text-white'><TfiWorld /></div>
+        <p className='text-[20px] text-white'>World News</p>
+        </button></Link>
+        {/* sag */}
+        <div className='flex text-white font-medium items-center' >
+          <ul className="flex gap-5">
+          {categories.map((category) => (
+              <li key={category.id} >
+                <button onClick={() => setSelectedCategoryId(category.id) }>
+                  <p>{category.name}</p>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="flex gap-[20px] items-center">
+      <Link to="/login" > <button className="flex items-center gap-[10px]" onClick={()=>{logout()}}>
+              <LuUser2 className="w-6 h-6 text-[#fff]" />
+      {isLogin ?   <p className="text-[20px] font-medium text-[#fff]">Log out</p> 
+         : <p className="text-[20px] font-medium text-[#fff]">Sign In</p>   }
+            </button></Link>
+       <Link to="/favNews" >       <button className="flex items-center gap-[10px]">
+         <FaRegHeart className="w-6 h-6 text-[#fff]" />
+              <p className="text-[20px] font-medium text-[#fff] ">Fav news</p>
+            </button>
         </Link>
-      </div>
-    </header>
+        <Link to="/addNews" >       <button className="flex items-center gap-[10px]">
+        <MdNoteAdd className="w-6 h-6 text-[#fff]" />
+              <p className="text-[20px] font-medium text-[#fff] ">Add news</p>
+            </button>
+        </Link>
+          </div>
+    </div>
+    </div>
+   </>
   );
 };
 

@@ -3,7 +3,7 @@ import { FaGoogle } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 
 
-const SignUp = () => {
+const Register = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -23,12 +23,11 @@ const SignUp = () => {
       username,
       email,
       password,
-      basket:[{productId:"",count:0}],
-      wishList:[{productId:""}]
+      favNews:[{newsId:""}]
     };
 
     try {
-      const response = await fetch("http://localhost:3001/users", {
+      const response = await fetch("http://localhost:3000/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -140,4 +139,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Register;

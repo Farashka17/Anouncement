@@ -4,7 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import useStore from "../../../store/store";
 
 
-const SignIn = () => {
+
+const Login = () => {
   const {setLogin}=useStore();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -103,4 +104,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default Login;
