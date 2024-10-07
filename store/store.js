@@ -2,18 +2,18 @@
 import { create } from "zustand";
 
 const useStore = create((set) => ({
-  selectedCategoryId: "",
+  selectedCategoryName: "",
 //   selectedColorId: "",
 //   selectedSizeId: "",
 //   selectedMaterialId: "",
   isLogin: false,
-  setSelectedCategoryId: (id) => set({ selectedCategoryId: id }),
+  setSelectedCategoryName: (name) => set({ selectedCategoryName: name }),
 //   setSelectedColorId: (id) => set({ selectedColorId: id }),
 //   setSelectedSizeId: (id) => set({ selectedSizeId: id }),
 //   setSelectedMaterialId: (id) => set({ selectedMaterialId: id }),
-  resetFilters: (id) =>
+  resetFilters: (name) =>
     set({
-      selectedCategoryId: ""
+      selectedCategoryName: ""
 //       selectedColorId: "",
 //       selectedSizeId: "",
 //       selectedMaterialId: "",

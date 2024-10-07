@@ -6,7 +6,7 @@ const Home = () => {
     const [news,setNews]= useState([]);
   const [filteredNews, setFilteredNews] = useState([]);
 
-    const selectedCategoryId = useStore((state) => state.selectedCategoryId);
+    const selectedCategoryName = useStore((state) => state.selectedCategoryName);
       const fetchData = async () => {
         const response = await fetch('http://localhost:3000/news');
         const result = await response.json();
@@ -18,27 +18,26 @@ const Home = () => {
         const data = await resp.json();
         let newFilter = data;
         
-       if (selectedCategoryId) {
+       if (selectedCategoryName) {
         newFilter = [...newFilter].filter(
-          (item) => item.categoryId == selectedCategoryId
+          (item) => item.name == selectedCategoryName
         );
       }
-      console.log(newFilter, "newFilter");
       setFilteredNews(newFilter);
     } 
       
       useEffect(() => {
         fetchData();
         fetchNews();
-      }, []);
+      }, [news]);
 
       useEffect(() => {
         fetchNews();
       }, [
-        selectedCategoryId
+        selectedCategoryName
       ]);
   return (
-    <div className=' bg-[#c0e9e9] '>
+    <div className=' bg-[#c0e9e9] min-h-[100vh]'>
     <div className='container max-w-[1128px] py-5 flex flex-wrap gap-5  items-center mx-auto'>
          {filteredNews && filteredNews.map(singleNews =>
             <SingleNews key={singleNews.id} name={singleNews.name} id={singleNews.id} description={singleNews.description}/>

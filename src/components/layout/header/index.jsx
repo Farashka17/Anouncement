@@ -9,9 +9,14 @@ import { MdNoteAdd } from "react-icons/md";
 
 import useStore from "../../../../store/store";
 const Header = () => { 
-
-  const setSelectedCategoryId = useStore(
-    (state) => state.setSelectedCategoryId
+  const addToNews = async (newsId)=>{
+    const userEmail = localStorage.getItem("userEmail") ;
+    if(!userEmail){
+     alert("Please log in to add news .");
+     return;
+    }}
+  const setSelectedCategoryName = useStore(
+    (state) => state.setSelectedCategoryName
   );
   const [categories, setCategories] = useState([]);
 
@@ -51,7 +56,7 @@ const Header = () => {
           <ul className="flex gap-5">
           {categories.map((category) => (
               <li key={category.id} >
-                <button onClick={() => setSelectedCategoryId(category.id) }>
+                <button onClick={() => setSelectedCategoryName(category.name) }>
                   <p>{category.name}</p>
                 </button>
               </li>
@@ -59,21 +64,39 @@ const Header = () => {
           </ul>
         </div>
         <div className="flex gap-[20px] items-center">
-      <Link to="/login" > <button className="flex items-center gap-[10px]" onClick={()=>{logout()}}>
+      <Link to="/login" >
+       <button className="flex items-center gap-[10px]" onClick={()=>{logout()}}>
               <LuUser2 className="w-6 h-6 text-[#fff]" />
       {isLogin ?   <p className="text-[20px] font-medium text-[#fff]">Log out</p> 
          : <p className="text-[20px] font-medium text-[#fff]">Sign In</p>   }
             </button></Link>
-       <Link to="/favNews" >       <button className="flex items-center gap-[10px]">
+       <Link to="/favNews" >       
+       <button className="flex items-center gap-[10px]">
          <FaRegHeart className="w-6 h-6 text-[#fff]" />
               <p className="text-[20px] font-medium text-[#fff] ">Fav news</p>
             </button>
         </Link>
-        <Link to="/addNews" >       <button className="flex items-center gap-[10px]">
+        {isLogin ?   
+        <Link to="/addNews" >    
+        <button className="flex items-center gap-[10px]" onClick={()=>
+        {
+          addToNews()
+        }}>
         <MdNoteAdd className="w-6 h-6 text-[#fff]" />
               <p className="text-[20px] font-medium text-[#fff] ">Add news</p>
             </button>
-        </Link>
+             </Link > :
+             <Link to="/" >   
+              
+             <button className="flex items-center gap-[10px]" onClick={()=>
+             {
+               addToNews()
+             }}>
+             <MdNoteAdd className="w-6 h-6 text-[#fff]" />
+                   <p className="text-[20px] font-medium text-[#fff] ">Add news</p>
+                 </button>
+                  </Link >
+}
           </div>
     </div>
     </div>

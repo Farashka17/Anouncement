@@ -25,7 +25,7 @@ const FavNews = () => {
     useEffect(() => {
       fetchUserData();
       fetchProducts();
-    }, []);
+    }, [news]);
   
   return (
     <div className=' bg-[#c0e9e9] '>

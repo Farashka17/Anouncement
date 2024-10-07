@@ -46,7 +46,6 @@
       "name": "Culture",
       "image": "https://wearecardinals.com/wp-content/uploads/2020/04/u1Re9qgMfM8d6kumlW85PS6s55jQh5fbdmppgQsP.jpeg",
       "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut nulla, reiciendis a debitis est possimus iste doloremque non perspiciatis aliquid voluptatum assumenda atque, optio officiis quidem error maiores rerum. Accusamus!",
-      
       "new": true
     },
     {
@@ -55,7 +54,6 @@
       "name": "Culture",
       "image": "https://wearecardinals.com/wp-content/uploads/2020/04/u1Re9qgMfM8d6kumlW85PS6s55jQh5fbdmppgQsP.jpeg",
       "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut nulla, reiciendis a debitis est possimus iste doloremque non perspiciatis aliquid voluptatum assumenda atque, optio officiis quidem error maiores rerum. Accusamus!",
-      
       "new": true
     },
     {
@@ -64,7 +62,6 @@
       "name": "Culture",
       "image": "https://wearecardinals.com/wp-content/uploads/2020/04/u1Re9qgMfM8d6kumlW85PS6s55jQh5fbdmppgQsP.jpeg",
       "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut nulla, reiciendis a debitis est possimus iste doloremque non perspiciatis aliquid voluptatum assumenda atque, optio officiis quidem error maiores rerum. Accusamus!",
-      
       "new": true
     },
     {
@@ -162,6 +159,24 @@
       "image": "https://wearecardinals.com/wp-content/uploads/2020/04/u1Re9qgMfM8d6kumlW85PS6s55jQh5fbdmppgQsP.jpeg",
       "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut nulla, reiciendis a debitis est possimus iste doloremque non perspiciatis aliquid voluptatum assumenda atque, optio officiis quidem error maiores rerum. Accusamus!",
       "new": true
+    },
+    {
+      "id": "74c7",
+      "name": "volleyball",
+      "category": "Sports",
+      "image": "https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "date": "2024-10-01",
+      "author": "Farah",
+      "description": "volleybalklfeeewwwwmnnnnn'''ffffffaaaaanjkf;we"
+    },
+    {
+      "id": "4ec3",
+      "name": "football",
+      "category": "Business",
+      "image": "https://images.pexels.com/photos/28098286/pexels-photo-28098286.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "date": "2024-10-02",
+      "author": "Farah",
+      "description": "deqm.wmd .,mFMELMWLFMEFLMWEFMEWFLNLvvvvvvvkkkkkkkkkkkkkkkkkkkkkkkkkkrrrrrrrrrrrrrrrrrrewwwwwwwwwwwwwwwwww"
     }
   ],
   "users": [
@@ -171,29 +186,11 @@
       "email": "farahnv@code.edu.az",
       "password": "12345",
       "favNews": [
-        {},
-        {
-          "newsId": "1"
-        },
-        {
-          "newsId": "9"
-        },
-        {
-          "newsId": "14"
-        },
         {
           "newsId": "2"
         }
       ],
-      "anouncements":[
-        {
-          "id": "1",
-          "title": "Car Accident",
-          "content": "A car accident happened in a highway.",
-          "date": "2021-02-15",
-          "authorId": "a1f8"
-        }
-      ]
+      "news": []
     }
   ],
   "category": [
