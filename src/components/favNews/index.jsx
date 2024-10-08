@@ -33,7 +33,7 @@ const FavNews = () => {
             {favNews.length > 0 ? (
               favNews.map((item, index) => {
                 const singleNews = news.find(
-                  (prod) => prod.id === item.newsId
+                  (prod) => prod.name === item.newsName
                 );
                 return singleNews ? (
                   <SingleNews
